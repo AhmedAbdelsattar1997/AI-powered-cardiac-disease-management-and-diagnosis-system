@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+    <title>Heart AI</title>
+</head>
+<body>
+
+<h2>توقع أمراض القلب</h2>
+
+<form method="POST" action="/predict">
+    {% for col in cols %}
+        <label>{{ col }}</label><br>
+
+        {% if col in options %}
+            <select name="{{ col }}">
+                {% for val, txt in options[col] %}
+                    <option value="{{ val }}">{{ txt }}</option>
+                {% endfor %}
+            </select>
+        {% else %}
+            <input type="number" step="any" name="{{ col }}">
+        {% endif %}
+
+        <br><br>
+    {% endfor %}
+
+    <button type="submit">تحليل</button>
+</form>
+
+<hr>
+
+<h3>رفع CSV</h3>
+<form method="POST" action="/batch" enctype="multipart/form-data">
+    <input type="file" name="file">
+    <button type="submit">Upload</button>
+</form>
+
+{% if result %}
+    <h3>{{ result }}</h3>
+{% endif %}
+
+</body>
+</html>
