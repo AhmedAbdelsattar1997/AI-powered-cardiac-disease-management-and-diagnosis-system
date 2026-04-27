@@ -54,6 +54,36 @@ The model was trained on the UCI Heart Disease dataset which includes clinical p
 * Add better UI for the web interface
 * Deploy the application online
 * Add probability prediction
+## Installation Guide
+1. Open terminal and navigate to project folder:
+cd project
+
+2. Create virtual environment:
+python -m venv venv
+
+3. Activate environment:
+Windows: venv\Scripts\activate
+Linux/macOS: source venv/bin/activate
+
+4. Install libraries:
+pip install -r requirements.txt
+Running the System
+cd app
+python app.py
+Accessing the System
+Open browser:
+http://127.0.0.1:5000
+## How to Use
+1. Open the web application.
+2. Enter patient data.
+3. Click Predict.
+4. View result.
+## Retraining Model
+jupyter notebook notebooks/train_model.ipynb
+## Troubleshooting
+• Reinstall libraries if missing.
+• Retrain model if file missing.
+• Change Flask port if busy.
 
 ## Author
 
